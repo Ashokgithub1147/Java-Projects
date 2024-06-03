@@ -21,3 +21,6 @@ spring:
 #  secret: 1234567  
 server:
   port: 9090
+logging:
+  level:
+    '[org.springframework.security]': TRACE
