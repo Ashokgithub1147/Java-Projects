@@ -34,7 +34,7 @@ public class AuthService {
 		user.setFirstName(registerRequest.getFirstName());
 		user.setLastName(registerRequest.getLastName());
 		user.setEmail(registerRequest.getEmail());
-		user.setUnencryptedPassword(user.getPassword());
+		user.setUnencryptedPassword(registerRequest.getPassword());
 		user.setPassword(passwordEncoder.encode(registerRequest.getPassword()));
 		user.setRole(registerRequest.getRole());
 		
@@ -54,16 +54,21 @@ public class AuthService {
 		//validate username and password
 		//Use any AuthenticationProvider
 		//Authenticate using authenticationManager
-		authenticationManager.authenticate(
-				new UsernamePasswordAuthenticationToken(authenticationRequest.getUserName(), authenticationRequest.getPassword())
-				);
-		//verify user present  in database
-		User user = userRepository.findByEmail(authenticationRequest.getUserName()).orElseThrow();
-		
-		//generate JWT token
-		String jwtToken = jwtService.generateToken(user);
 		ResponseBody response = new ResponseBody();
-		response.setJwtToken(jwtToken);
+		try {			
+			authenticationManager.authenticate(
+					new UsernamePasswordAuthenticationToken(authenticationRequest.getUserName(), authenticationRequest.getPassword())
+					);
+			//verify user present  in database
+			User user = userRepository.findByEmail(authenticationRequest.getUserName()).orElseThrow();
+			
+			//generate JWT token
+			String jwtToken = jwtService.generateToken(user);
+			response.setJwtToken(jwtToken);
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
 		return response;
 	}
 }

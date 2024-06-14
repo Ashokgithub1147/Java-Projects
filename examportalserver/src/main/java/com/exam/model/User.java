@@ -4,19 +4,20 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 
 @Entity
 @Table(name="users")
@@ -25,7 +26,7 @@ public class User implements UserDetails{
 	private static final long serialVersionUID = 145678907357980998L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String userName;
 	private String password;
@@ -35,12 +36,15 @@ public class User implements UserDetails{
 	private String phone;
 	private Boolean enabled = true;
 	private String profileUrl;
+	private String unencryptedPassword;
 	//one user has many roles
 	//one-to-may
 	//user is User reference in UserRole
 	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "user")
 	@JsonIgnore
 	private Set<UserRole> userRoles = new HashSet<>();
+	@Transient
+	Set<Long> roleIds;
 	public User() {
 		
 	}
@@ -124,6 +128,22 @@ public class User implements UserDetails{
 	public void setUserRoles(Set<UserRole> userRoles) {
 		this.userRoles = userRoles;
 	}
+	
+	public Set<Long> getRoleIds() {
+		return roleIds;
+	}
+
+	public void setRoleIds(Set<Long> roleIds) {
+		this.roleIds = roleIds;
+	}
+
+	public String getUnencryptedPassword() {
+		return unencryptedPassword;
+	}
+
+	public void setUnencryptedPassword(String unencryptedPassword) {
+		this.unencryptedPassword = unencryptedPassword;
+	}
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -155,12 +175,12 @@ public class User implements UserDetails{
 
 	@Override
 	public boolean isCredentialsNonExpired() {
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isEnabled() {
-		return false;
+		return this.enabled;
 	}
 	
 	

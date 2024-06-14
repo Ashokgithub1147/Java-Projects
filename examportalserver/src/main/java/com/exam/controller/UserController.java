@@ -40,19 +40,19 @@ public class UserController {
 	public ResponseBean createUser(@RequestBody User user) {
 		ResponseBean response = new ResponseBean();
 		try {
-			Set<UserRole> roles = new HashSet<>();
-			
-			Role role = new Role();
-			role.setId(normalUserRole);
-			role.setRoleName("NORMAL");
-			
-			UserRole userRole = new UserRole();
-			userRole.setRole(role);
-			userRole.setUser(user);
-			
-			//adding userRole to roles set
-			roles.add(userRole);
-			response = userService.createUser(user, roles);
+//			Set<UserRole> roles = new HashSet<>();
+//			
+//			Role role = new Role();
+//			role.setId(normalUserRole);
+//			role.setRoleName("NORMAL");
+//			
+//			UserRole userRole = new UserRole();
+//			userRole.setRole(role);
+//			userRole.setUser(user);
+//			
+//			//adding userRole to roles set
+//			roles.add(userRole);
+			response = userService.createUser(user);
 		}catch(Exception e) {
 			System.out.println("Exception occured "+e.getMessage());
 			response.setMessage("Create User API failed with Exception : "+e.getMessage());

@@ -23,4 +23,4 @@ server:
   port: 9090
 logging:
   level:
-    '[org.springframework.security]': TRACE
+    '[org.springframework.security]': DEBUG

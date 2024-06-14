@@ -1,18 +1,15 @@
 package com.exam.controller;
 
 import java.security.Principal;
-import java.util.Optional;
 
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,6 +25,9 @@ import com.exam.utilities.JwtRequest;
 import com.exam.utilities.JwtTokenUtility;
 import com.exam.utilities.ResponseBean;
 
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.ServletResponse;
+
 @RestController
 @RequestMapping("/user")
 @CrossOrigin("*")
@@ -37,7 +37,7 @@ public class JwtAuthenticationController {
 	@Autowired private AuthenticationManager authenticationManager;
 	@Autowired private UserRepository userRepository;
 	@Autowired private UserService userService;
-	
+//	@Autowired private Logger logger;
 //	class LoginData{
 //		public String token;
 //		public User user;
@@ -57,9 +57,14 @@ public class JwtAuthenticationController {
 			authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(jwtRequest.getUserName(), jwtRequest.getPassword()));
 		}catch(BadCredentialsException e){
 			System.out.println("Exception occured :"+e.getMessage());
+			response.setMessage(e.getMessage());
+			response.setStatus(HttpStatus.UNAUTHORIZED);
+			return response;
 		}
-		final UserDetails userDetails = jwtUserDetailsService.loadUserByUsername(jwtRequest.getUserName());
-		final String token = jwtTokenUtility.generateToken(userDetails);
+//		try {
+			
+			final UserDetails userDetails = jwtUserDetailsService.loadUserByUsername(jwtRequest.getUserName());
+			final String token = jwtTokenUtility.generateToken(userDetails);
 //		Optional<User> userOptional = userRepository.findByuserName(jwtRequest.getUserName());
 //		User userData = null;
 //		if(userOptional.isPresent()) {
@@ -68,11 +73,16 @@ public class JwtAuthenticationController {
 //		LoginData loginData = new LoginData();
 //		loginData.token = token;
 //		loginData.user = userData;
-		response.setStatus(HttpStatus.OK);
-		response.setMessage("JWT Token generated successfully!");
-		JWTToken jwtToken = new JWTToken();
-		jwtToken.token = token;
-		response.setData(jwtToken);
+			response.setStatus(HttpStatus.OK);
+			response.setMessage("JWT Token generated successfully!");
+			JWTToken jwtToken = new JWTToken();
+			jwtToken.token = token;
+			response.setData(jwtToken);
+//		} catch(UsernameNotFoundException ex) {
+//			response.setStatus(HttpStatus.NOT_FOUND);
+//			response.setMessage(ex.getMessage());
+//			logger.info(ex.getMessage());
+//		}
 		return response;
 	}
 	/**
