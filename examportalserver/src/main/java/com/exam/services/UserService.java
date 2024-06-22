@@ -114,10 +114,34 @@ public class UserService {
 			response.setStatus(HttpStatus.OK);
 			response.setMessage("User deleted successfully");
 		} else {
-			response.setStatus(HttpStatus.OK);
+			response.setStatus(HttpStatus.NOT_FOUND);
 			response.setMessage("User Not found with given  id:"+userId);
 		}
 		return response;
 	}
-	
+
+	public ResponseBean updateUser(User user) {
+		ResponseBean response = new ResponseBean();
+		Long userId = user.getId();
+		Optional<User> userOptional = this.userRepository.findById(userId);
+		if(!userOptional.isPresent()) {
+			response.setStatus(HttpStatus.NOT_FOUND);
+			response.setMessage("User Not found with given  id:"+userId);
+		} else {
+			User existingUser = userOptional.get();
+			final User userToSave = this.mapUserObject(existingUser, user);
+			User savedUser = this.userRepository.save(userToSave);
+			response.setData(savedUser);
+			response.setStatus(HttpStatus.OK);
+		}
+		return response;
+	}
+	private User mapUserObject(User existingUser, User currentUser) {
+		existingUser.setFirstName(currentUser.getFirstName());
+		existingUser.setLastName(currentUser.getLastName());
+		existingUser.setEmail(currentUser.getEmail());
+		existingUser.setPhone(currentUser.getPhone());
+		existingUser.setProfileUrl(currentUser.getProfileUrl());
+		return existingUser;
+	}
 }

@@ -1,101 +1,279 @@
-13-Jun-2024 23:18:58.229 INFO  25668 --- [restartedMain] com.exam.ExamportalserverApplication         : Starting ExamportalserverApplication using Java 17.0.10 with PID 25668 (D:\Hibernate With JPA 8-AM\examportalserver\target\classes started by aulava in D:\Hibernate With JPA 8-AM\examportalserver)
-13-Jun-2024 23:18:58.230 DEBUG 25668 --- [restartedMain] com.exam.ExamportalserverApplication         : Running with Spring Boot v3.2.5, Spring v6.1.6
-13-Jun-2024 23:18:58.231 INFO  25668 --- [restartedMain] com.exam.ExamportalserverApplication         : No active profile set, falling back to 1 default profile: "default"
-13-Jun-2024 23:19:00.502 DEBUG 25668 --- [restartedMain] o.h.t.d.sql.spi.DdlTypeRegistry              : addDescriptor(2003, org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@4c660a7e) replaced previous registration(org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@1af5c95)
-13-Jun-2024 23:19:00.504 DEBUG 25668 --- [restartedMain] o.h.t.d.sql.spi.DdlTypeRegistry              : addDescriptor(6, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@2c73837b) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@b563ea4)
-13-Jun-2024 23:19:01.853 ERROR 25668 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]           : Exception starting filter [jwtAuthRequestFilter]
+14-Jun-2024 17:46:19.288 INFO  26976 --- [restartedMain] com.exam.ExamportalserverApplication         : Starting ExamportalserverApplication using Java 17.0.10 with PID 26976 (D:\MyWork\Java Server Code\Java-Projects\examportalserver\target\classes started by aulava in D:\MyWork\Java Server Code\Java-Projects\examportalserver)
+14-Jun-2024 17:46:19.289 DEBUG 26976 --- [restartedMain] com.exam.ExamportalserverApplication         : Running with Spring Boot v3.2.5, Spring v6.1.6
+14-Jun-2024 17:46:19.290 INFO  26976 --- [restartedMain] com.exam.ExamportalserverApplication         : No active profile set, falling back to 1 default profile: "default"
+14-Jun-2024 17:46:21.535 DEBUG 26976 --- [restartedMain] o.h.t.d.sql.spi.DdlTypeRegistry              : addDescriptor(2003, org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@3ca4a5b5) replaced previous registration(org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@29fcca63)
+14-Jun-2024 17:46:21.537 DEBUG 26976 --- [restartedMain] o.h.t.d.sql.spi.DdlTypeRegistry              : addDescriptor(6, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@622536d8) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@3a79f47)
+14-Jun-2024 17:46:22.928 DEBUG 26976 --- [restartedMain] com.exam.config.JwtAuthRequestFilter         : Filter 'jwtAuthRequestFilter' configured for use
+14-Jun-2024 17:46:23.306 INFO  26976 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain         : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@b47e5fa, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4a8963d, org.springframework.security.web.context.SecurityContextHolderFilter@1e26172d, org.springframework.security.web.header.HeaderWriterFilter@6b5dc509, org.springframework.web.filter.CorsFilter@692e21d9, org.springframework.security.web.authentication.logout.LogoutFilter@14f981f6, com.exam.config.JwtAuthRequestFilter@3d84a21, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@21a250c1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@15e4b31f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@59318a82, org.springframework.security.web.session.SessionManagementFilter@399021bc, org.springframework.security.web.access.ExceptionTranslationFilter@7fda273f, org.springframework.security.web.access.intercept.AuthorizationFilter@b1ea2d]
+14-Jun-2024 17:46:23.530 INFO  26976 --- [restartedMain] com.exam.ExamportalserverApplication         : Started ExamportalserverApplication in 4.611 seconds (process running for 5.706)
+14-Jun-2024 17:46:28.047 DEBUG 26976 --- [http-nio-9001-exec-1] o.s.security.web.FilterChainProxy            : Securing PUT /user/updateUser
+14-Jun-2024 17:46:28.122 ERROR 26976 --- [http-nio-9001-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]        : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
 
-java.lang.NullPointerException: Cannot invoke "org.apache.commons.logging.Log.isDebugEnabled()" because "this.logger" is null
-	at org.springframework.web.filter.GenericFilterBean.init(GenericFilterBean.java:239)
-	at org.apache.catalina.core.ApplicationFilterConfig.initFilter(ApplicationFilterConfig.java:263)
-	at org.apache.catalina.core.ApplicationFilterConfig.<init>(ApplicationFilterConfig.java:102)
-	at org.apache.catalina.core.StandardContext.filterStart(StandardContext.java:4301)
-	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4916)
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
-	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332)
-	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
-	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
-	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:866)
-	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:845)
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
-	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332)
-	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
-	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
-	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:866)
-	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:240)
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
-	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:433)
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
-	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:921)
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
-	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:437)
-	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:126)
-	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:105)
-	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:499)
-	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:218)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:188)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:162)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:618)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
-	at com.exam.ExamportalserverApplication.main(ExamportalserverApplication.java:13)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+io.jsonwebtoken.security.SignatureException: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:399)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:529)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseClaimsJws(DefaultJwtParser.java:589)
+	at io.jsonwebtoken.impl.ImmutableJwtParser.parseClaimsJws(ImmutableJwtParser.java:173)
+	at com.exam.utilities.JwtTokenUtility.getAllClaimsFromToken(JwtTokenUtility.java:82)
+	at com.exam.utilities.JwtTokenUtility.getClaimFromToken(JwtTokenUtility.java:70)
+	at com.exam.utilities.JwtTokenUtility.getUsernameFromToken(JwtTokenUtility.java:43)
+	at com.exam.config.JwtAuthRequestFilter.doFilterInternal(JwtAuthRequestFilter.java:39)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1736)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
 
-13-Jun-2024 23:19:01.855 ERROR 25668 --- [restartedMain] o.apache.catalina.core.StandardContext       : One or more Filters failed to start. Full details will be found in the appropriate container log file
-13-Jun-2024 23:19:01.855 ERROR 25668 --- [restartedMain] o.apache.catalina.core.StandardContext       : Context [] startup failed due to previous errors
-13-Jun-2024 23:19:01.935 ERROR 25668 --- [restartedMain] o.s.boot.SpringApplication                   : Application run failed
+14-Jun-2024 17:46:28.129 DEBUG 26976 --- [http-nio-9001-exec-1] o.s.security.web.FilterChainProxy            : Securing PUT /error
+14-Jun-2024 17:46:28.131 DEBUG 26976 --- [http-nio-9001-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter      : Set SecurityContextHolder to anonymous SecurityContext
+14-Jun-2024 17:47:24.728 DEBUG 26976 --- [http-nio-9001-exec-3] o.s.security.web.FilterChainProxy            : Securing POST /user/generate-token
+14-Jun-2024 17:47:24.729 DEBUG 26976 --- [http-nio-9001-exec-3] o.s.s.w.a.AnonymousAuthenticationFilter      : Set SecurityContextHolder to anonymous SecurityContext
+14-Jun-2024 17:47:24.729 DEBUG 26976 --- [http-nio-9001-exec-3] o.s.security.web.FilterChainProxy            : Secured POST /user/generate-token
+14-Jun-2024 17:48:44.907 TRACE 26976 --- [http-nio-9001-exec-3] o.s.t.i.TransactionInterceptor               : No need to create transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findByuserName]: This method is not transactional.
+14-Jun-2024 17:48:50.251 DEBUG 26976 --- [http-nio-9001-exec-3] org.hibernate.SQL                            : 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.firstName,
+        u1_0.lastName,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.profileUrl,
+        u1_0.unencryptedPassword,
+        u1_0.userName 
+    from
+        users u1_0 
+    where
+        u1_0.userName=?
+14-Jun-2024 17:48:50.592 DEBUG 26976 --- [http-nio-9001-exec-3] org.hibernate.SQL                            : 
+    select
+        ur1_0.user_id,
+        ur1_0.userRoleId,
+        r1_0.id,
+        r1_0.roleName 
+    from
+        userrole ur1_0 
+    left join
+        roles r1_0 
+            on r1_0.id=ur1_0.role_id 
+    where
+        ur1_0.user_id=?
+14-Jun-2024 17:48:57.858 DEBUG 26976 --- [http-nio-9001-exec-3] o.s.s.a.dao.DaoAuthenticationProvider        : Authenticated user
+14-Jun-2024 17:48:57.859 TRACE 26976 --- [http-nio-9001-exec-3] o.s.t.i.TransactionInterceptor               : No need to create transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findByuserName]: This method is not transactional.
+14-Jun-2024 17:48:57.860 DEBUG 26976 --- [http-nio-9001-exec-3] org.hibernate.SQL                            : 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.firstName,
+        u1_0.lastName,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.profileUrl,
+        u1_0.unencryptedPassword,
+        u1_0.userName 
+    from
+        users u1_0 
+    where
+        u1_0.userName=?
+14-Jun-2024 17:49:24.539 DEBUG 26976 --- [http-nio-9001-exec-4] o.s.security.web.FilterChainProxy            : Securing GET /user/getUser?userName=Pradeep
+14-Jun-2024 17:49:24.544 TRACE 26976 --- [http-nio-9001-exec-4] o.s.t.i.TransactionInterceptor               : No need to create transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findByuserName]: This method is not transactional.
+14-Jun-2024 17:49:24.571 DEBUG 26976 --- [http-nio-9001-exec-4] org.hibernate.SQL                            : 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.firstName,
+        u1_0.lastName,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.profileUrl,
+        u1_0.unencryptedPassword,
+        u1_0.userName 
+    from
+        users u1_0 
+    where
+        u1_0.userName=?
+14-Jun-2024 17:49:24.574 DEBUG 26976 --- [http-nio-9001-exec-4] org.hibernate.SQL                            : 
+    select
+        ur1_0.user_id,
+        ur1_0.userRoleId,
+        r1_0.id,
+        r1_0.roleName 
+    from
+        userrole ur1_0 
+    left join
+        roles r1_0 
+            on r1_0.id=ur1_0.role_id 
+    where
+        ur1_0.user_id=?
+14-Jun-2024 17:50:12.666 DEBUG 26976 --- [http-nio-9001-exec-4] o.s.security.web.FilterChainProxy            : Secured GET /user/getUser?userName=Pradeep
+14-Jun-2024 17:50:16.473 TRACE 26976 --- [http-nio-9001-exec-4] o.s.t.i.TransactionInterceptor               : Getting transaction for [com.exam.services.UserService.getUser]
+14-Jun-2024 17:50:16.475 TRACE 26976 --- [http-nio-9001-exec-4] o.s.t.i.TransactionInterceptor               : No need to create transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findByuserName]: This method is not transactional.
+14-Jun-2024 17:50:16.500 DEBUG 26976 --- [http-nio-9001-exec-4] org.hibernate.SQL                            : 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.firstName,
+        u1_0.lastName,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.profileUrl,
+        u1_0.unencryptedPassword,
+        u1_0.userName 
+    from
+        users u1_0 
+    where
+        u1_0.userName=?
+14-Jun-2024 17:50:16.608 DEBUG 26976 --- [http-nio-9001-exec-4] org.hibernate.SQL                            : 
+    select
+        ur1_0.user_id,
+        ur1_0.userRoleId,
+        r1_0.id,
+        r1_0.roleName 
+    from
+        userrole ur1_0 
+    left join
+        roles r1_0 
+            on r1_0.id=ur1_0.role_id 
+    where
+        ur1_0.user_id=?
+14-Jun-2024 17:50:16.618 TRACE 26976 --- [http-nio-9001-exec-4] o.s.t.i.TransactionInterceptor               : Completing transaction for [com.exam.services.UserService.getUser]
+14-Jun-2024 17:51:00.791 DEBUG 26976 --- [http-nio-9001-exec-5] o.s.security.web.FilterChainProxy            : Securing PUT /user/updateUser
+14-Jun-2024 17:51:00.793 ERROR 26976 --- [http-nio-9001-exec-5] o.a.c.c.C.[.[.[/].[dispatcherServlet]        : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
 
-org.springframework.context.ApplicationContextException: Unable to start web server
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:165)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:618)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
-	at com.exam.ExamportalserverApplication.main(ExamportalserverApplication.java:13)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
-Caused by: org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
-	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:145)
-	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:105)
-	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:499)
-	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:218)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:188)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:162)
-	... 13 common frames omitted
-Caused by: java.lang.IllegalStateException: StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[] failed to start
-	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.rethrowDeferredStartupExceptions(TomcatWebServer.java:207)
-	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:129)
-	... 18 common frames omitted
+io.jsonwebtoken.security.SignatureException: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:399)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:529)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseClaimsJws(DefaultJwtParser.java:589)
+	at io.jsonwebtoken.impl.ImmutableJwtParser.parseClaimsJws(ImmutableJwtParser.java:173)
+	at com.exam.utilities.JwtTokenUtility.getAllClaimsFromToken(JwtTokenUtility.java:82)
+	at com.exam.utilities.JwtTokenUtility.getClaimFromToken(JwtTokenUtility.java:70)
+	at com.exam.utilities.JwtTokenUtility.getUsernameFromToken(JwtTokenUtility.java:43)
+	at com.exam.config.JwtAuthRequestFilter.doFilterInternal(JwtAuthRequestFilter.java:39)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1736)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
 
-13-Jun-2024 23:19:33.358 INFO  31856 --- [restartedMain] com.exam.ExamportalserverApplication         : Starting ExamportalserverApplication using Java 17.0.10 with PID 31856 (D:\Hibernate With JPA 8-AM\examportalserver\target\classes started by aulava in D:\Hibernate With JPA 8-AM\examportalserver)
-13-Jun-2024 23:19:33.360 DEBUG 31856 --- [restartedMain] com.exam.ExamportalserverApplication         : Running with Spring Boot v3.2.5, Spring v6.1.6
-13-Jun-2024 23:19:33.360 INFO  31856 --- [restartedMain] com.exam.ExamportalserverApplication         : No active profile set, falling back to 1 default profile: "default"
-13-Jun-2024 23:19:35.638 DEBUG 31856 --- [restartedMain] o.h.t.d.sql.spi.DdlTypeRegistry              : addDescriptor(2003, org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@1e5e3205) replaced previous registration(org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@5ee5ffe1)
-13-Jun-2024 23:19:35.640 DEBUG 31856 --- [restartedMain] o.h.t.d.sql.spi.DdlTypeRegistry              : addDescriptor(6, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@15e55ae2) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@d320ad4)
-13-Jun-2024 23:19:37.186 DEBUG 31856 --- [restartedMain] com.exam.config.JwtAuthRequestFilter         : Filter 'jwtAuthRequestFilter' configured for use
-13-Jun-2024 23:19:37.660 INFO  31856 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain         : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1077bb28, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@613f49de, org.springframework.security.web.context.SecurityContextHolderFilter@37369a08, org.springframework.security.web.header.HeaderWriterFilter@5477f296, org.springframework.web.filter.CorsFilter@758f0f6e, org.springframework.security.web.authentication.logout.LogoutFilter@4ce30ccb, com.exam.config.JwtAuthRequestFilter@4f0676dd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7b6982c1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5eacf71, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1e62c06c, org.springframework.security.web.session.SessionManagementFilter@42e0da18, org.springframework.security.web.access.ExceptionTranslationFilter@3155b746, org.springframework.security.web.access.intercept.AuthorizationFilter@77b0d121]
-13-Jun-2024 23:19:38.011 INFO  31856 --- [restartedMain] com.exam.ExamportalserverApplication         : Started ExamportalserverApplication in 5.022 seconds (process running for 5.893)
-13-Jun-2024 23:20:13.846 DEBUG 31856 --- [http-nio-9001-exec-2] o.s.security.web.FilterChainProxy            : Securing DELETE /user/deleteUserById?userId=4
-13-Jun-2024 23:20:13.904 TRACE 31856 --- [http-nio-9001-exec-2] o.s.t.i.TransactionInterceptor               : No need to create transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findByuserName]: This method is not transactional.
-13-Jun-2024 23:20:14.026 DEBUG 31856 --- [http-nio-9001-exec-2] org.hibernate.SQL                            : 
+14-Jun-2024 17:51:00.794 DEBUG 26976 --- [http-nio-9001-exec-5] o.s.security.web.FilterChainProxy            : Securing PUT /error
+14-Jun-2024 17:51:00.794 DEBUG 26976 --- [http-nio-9001-exec-5] o.s.s.w.a.AnonymousAuthenticationFilter      : Set SecurityContextHolder to anonymous SecurityContext
+14-Jun-2024 17:51:10.155 DEBUG 26976 --- [http-nio-9001-exec-6] o.s.security.web.FilterChainProxy            : Securing PUT /user/updateUser
+14-Jun-2024 17:51:10.156 TRACE 26976 --- [http-nio-9001-exec-6] o.s.t.i.TransactionInterceptor               : No need to create transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findByuserName]: This method is not transactional.
+14-Jun-2024 17:51:10.157 DEBUG 26976 --- [http-nio-9001-exec-6] org.hibernate.SQL                            : 
     select
         u1_0.id,
         u1_0.email,
@@ -111,7 +289,7 @@ Caused by: java.lang.IllegalStateException: StandardEngine[Tomcat].StandardHost[
         users u1_0 
     where
         u1_0.userName=?
-13-Jun-2024 23:20:14.053 DEBUG 31856 --- [http-nio-9001-exec-2] org.hibernate.SQL                            : 
+14-Jun-2024 17:51:10.159 DEBUG 26976 --- [http-nio-9001-exec-6] org.hibernate.SQL                            : 
     select
         ur1_0.user_id,
         ur1_0.userRoleId,
@@ -124,10 +302,10 @@ Caused by: java.lang.IllegalStateException: StandardEngine[Tomcat].StandardHost[
             on r1_0.id=ur1_0.role_id 
     where
         ur1_0.user_id=?
-13-Jun-2024 23:20:14.067 DEBUG 31856 --- [http-nio-9001-exec-2] o.s.security.web.FilterChainProxy            : Secured DELETE /user/deleteUserById?userId=4
-13-Jun-2024 23:20:14.107 TRACE 31856 --- [http-nio-9001-exec-2] o.s.t.i.TransactionInterceptor               : Getting transaction for [com.exam.services.UserService.deleteUser]
-13-Jun-2024 23:20:14.109 TRACE 31856 --- [http-nio-9001-exec-2] o.s.t.i.TransactionInterceptor               : Getting transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findById]
-13-Jun-2024 23:20:14.117 DEBUG 31856 --- [http-nio-9001-exec-2] org.hibernate.SQL                            : 
+14-Jun-2024 17:51:19.213 DEBUG 26976 --- [http-nio-9001-exec-6] o.s.security.web.FilterChainProxy            : Secured PUT /user/updateUser
+14-Jun-2024 17:51:19.318 TRACE 26976 --- [http-nio-9001-exec-6] o.s.t.i.TransactionInterceptor               : Getting transaction for [com.exam.services.UserService.updateUser]
+14-Jun-2024 17:51:20.279 TRACE 26976 --- [http-nio-9001-exec-6] o.s.t.i.TransactionInterceptor               : Getting transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findById]
+14-Jun-2024 17:51:21.093 DEBUG 26976 --- [http-nio-9001-exec-6] org.hibernate.SQL                            : 
     select
         u1_0.id,
         u1_0.email,
@@ -153,11 +331,19 @@ Caused by: java.lang.IllegalStateException: StandardEngine[Tomcat].StandardHost[
             on r1_0.id=ur1_0.role_id 
     where
         u1_0.id=?
-13-Jun-2024 23:20:14.120 TRACE 31856 --- [http-nio-9001-exec-2] o.s.t.i.TransactionInterceptor               : Completing transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findById]
-13-Jun-2024 23:20:14.120 TRACE 31856 --- [http-nio-9001-exec-2] o.s.t.i.TransactionInterceptor               : Completing transaction for [com.exam.services.UserService.deleteUser]
-13-Jun-2024 23:20:33.644 DEBUG 31856 --- [http-nio-9001-exec-3] o.s.security.web.FilterChainProxy            : Securing DELETE /user/deleteUserById?userId=4
-13-Jun-2024 23:20:33.646 TRACE 31856 --- [http-nio-9001-exec-3] o.s.t.i.TransactionInterceptor               : No need to create transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findByuserName]: This method is not transactional.
-13-Jun-2024 23:20:33.647 DEBUG 31856 --- [http-nio-9001-exec-3] org.hibernate.SQL                            : 
+14-Jun-2024 17:51:21.106 TRACE 26976 --- [http-nio-9001-exec-6] o.s.t.i.TransactionInterceptor               : Completing transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findById]
+14-Jun-2024 17:51:25.498 TRACE 26976 --- [http-nio-9001-exec-6] o.s.t.i.TransactionInterceptor               : Completing transaction for [com.exam.services.UserService.updateUser]
+14-Jun-2024 17:51:52.871 INFO  26976 --- [restartedMain] com.exam.ExamportalserverApplication         : Starting ExamportalserverApplication using Java 17.0.10 with PID 26976 (D:\MyWork\Java Server Code\Java-Projects\examportalserver\target\classes started by aulava in D:\MyWork\Java Server Code\Java-Projects\examportalserver)
+14-Jun-2024 17:51:52.871 DEBUG 26976 --- [restartedMain] com.exam.ExamportalserverApplication         : Running with Spring Boot v3.2.5, Spring v6.1.6
+14-Jun-2024 17:51:52.871 INFO  26976 --- [restartedMain] com.exam.ExamportalserverApplication         : No active profile set, falling back to 1 default profile: "default"
+14-Jun-2024 17:51:54.062 DEBUG 26976 --- [restartedMain] o.h.t.d.sql.spi.DdlTypeRegistry              : addDescriptor(2003, org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@5c74f3d0) replaced previous registration(org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@71984fd2)
+14-Jun-2024 17:51:54.062 DEBUG 26976 --- [restartedMain] o.h.t.d.sql.spi.DdlTypeRegistry              : addDescriptor(6, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@46ea3764) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@54291cde)
+14-Jun-2024 17:51:54.197 DEBUG 26976 --- [restartedMain] com.exam.config.JwtAuthRequestFilter         : Filter 'jwtAuthRequestFilter' configured for use
+14-Jun-2024 17:51:54.307 INFO  26976 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain         : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5e5023b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@333d1ca2, org.springframework.security.web.context.SecurityContextHolderFilter@44c1a636, org.springframework.security.web.header.HeaderWriterFilter@60d551fb, org.springframework.web.filter.CorsFilter@1f8005ba, org.springframework.security.web.authentication.logout.LogoutFilter@262e2de6, com.exam.config.JwtAuthRequestFilter@4f59dbbf, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@61abf620, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2bbb3967, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@579ff5e0, org.springframework.security.web.session.SessionManagementFilter@78304847, org.springframework.security.web.access.ExceptionTranslationFilter@1f375f19, org.springframework.security.web.access.intercept.AuthorizationFilter@5273548e]
+14-Jun-2024 17:51:54.390 INFO  26976 --- [restartedMain] com.exam.ExamportalserverApplication         : Started ExamportalserverApplication in 1.548 seconds (process running for 336.195)
+14-Jun-2024 17:51:54.924 DEBUG 26976 --- [http-nio-9001-exec-2] o.s.security.web.FilterChainProxy            : Securing PUT /user/updateUser
+14-Jun-2024 17:51:54.931 TRACE 26976 --- [http-nio-9001-exec-2] o.s.t.i.TransactionInterceptor               : No need to create transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findByuserName]: This method is not transactional.
+14-Jun-2024 17:51:54.945 DEBUG 26976 --- [http-nio-9001-exec-2] org.hibernate.SQL                            : 
     select
         u1_0.id,
         u1_0.email,
@@ -173,7 +359,7 @@ Caused by: java.lang.IllegalStateException: StandardEngine[Tomcat].StandardHost[
         users u1_0 
     where
         u1_0.userName=?
-13-Jun-2024 23:20:33.649 DEBUG 31856 --- [http-nio-9001-exec-3] org.hibernate.SQL                            : 
+14-Jun-2024 17:51:54.948 DEBUG 26976 --- [http-nio-9001-exec-2] org.hibernate.SQL                            : 
     select
         ur1_0.user_id,
         ur1_0.userRoleId,
@@ -186,10 +372,49 @@ Caused by: java.lang.IllegalStateException: StandardEngine[Tomcat].StandardHost[
             on r1_0.id=ur1_0.role_id 
     where
         ur1_0.user_id=?
-13-Jun-2024 23:20:33.654 DEBUG 31856 --- [http-nio-9001-exec-3] o.s.security.web.FilterChainProxy            : Secured DELETE /user/deleteUserById?userId=4
-13-Jun-2024 23:20:33.655 TRACE 31856 --- [http-nio-9001-exec-3] o.s.t.i.TransactionInterceptor               : Getting transaction for [com.exam.services.UserService.deleteUser]
-13-Jun-2024 23:20:33.655 TRACE 31856 --- [http-nio-9001-exec-3] o.s.t.i.TransactionInterceptor               : Getting transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findById]
-13-Jun-2024 23:20:33.655 DEBUG 31856 --- [http-nio-9001-exec-3] org.hibernate.SQL                            : 
+14-Jun-2024 17:52:06.222 INFO  4944 --- [restartedMain] com.exam.ExamportalserverApplication         : Starting ExamportalserverApplication using Java 17.0.10 with PID 4944 (D:\MyWork\Java Server Code\Java-Projects\examportalserver\target\classes started by aulava in D:\MyWork\Java Server Code\Java-Projects\examportalserver)
+14-Jun-2024 17:52:06.223 DEBUG 4944 --- [restartedMain] com.exam.ExamportalserverApplication         : Running with Spring Boot v3.2.5, Spring v6.1.6
+14-Jun-2024 17:52:06.224 INFO  4944 --- [restartedMain] com.exam.ExamportalserverApplication         : No active profile set, falling back to 1 default profile: "default"
+14-Jun-2024 17:52:08.380 DEBUG 4944 --- [restartedMain] o.h.t.d.sql.spi.DdlTypeRegistry              : addDescriptor(2003, org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@7621f134) replaced previous registration(org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@1ae6f94d)
+14-Jun-2024 17:52:08.381 DEBUG 4944 --- [restartedMain] o.h.t.d.sql.spi.DdlTypeRegistry              : addDescriptor(6, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@6ebc2187) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@43c2aec6)
+14-Jun-2024 17:52:09.798 DEBUG 4944 --- [restartedMain] com.exam.config.JwtAuthRequestFilter         : Filter 'jwtAuthRequestFilter' configured for use
+14-Jun-2024 17:52:10.127 INFO  4944 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain         : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4649a1b7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@16bc8f67, org.springframework.security.web.context.SecurityContextHolderFilter@4f3716b2, org.springframework.security.web.header.HeaderWriterFilter@73d69f6b, org.springframework.web.filter.CorsFilter@3454278, org.springframework.security.web.authentication.logout.LogoutFilter@524651fe, com.exam.config.JwtAuthRequestFilter@42c58c74, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4373fc1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7d5a791d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@65bd456d, org.springframework.security.web.session.SessionManagementFilter@a195041, org.springframework.security.web.access.ExceptionTranslationFilter@2e2b0bdb, org.springframework.security.web.access.intercept.AuthorizationFilter@3a3d430a]
+14-Jun-2024 17:52:10.369 INFO  4944 --- [restartedMain] com.exam.ExamportalserverApplication         : Started ExamportalserverApplication in 4.49 seconds (process running for 5.365)
+14-Jun-2024 17:52:10.577 DEBUG 4944 --- [http-nio-9001-exec-2] o.s.security.web.FilterChainProxy            : Securing PUT /user/updateUser
+14-Jun-2024 17:52:10.637 TRACE 4944 --- [http-nio-9001-exec-2] o.s.t.i.TransactionInterceptor               : No need to create transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findByuserName]: This method is not transactional.
+14-Jun-2024 17:52:10.756 DEBUG 4944 --- [http-nio-9001-exec-2] org.hibernate.SQL                            : 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.firstName,
+        u1_0.lastName,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.profileUrl,
+        u1_0.unencryptedPassword,
+        u1_0.userName 
+    from
+        users u1_0 
+    where
+        u1_0.userName=?
+14-Jun-2024 17:52:10.780 DEBUG 4944 --- [http-nio-9001-exec-2] org.hibernate.SQL                            : 
+    select
+        ur1_0.user_id,
+        ur1_0.userRoleId,
+        r1_0.id,
+        r1_0.roleName 
+    from
+        userrole ur1_0 
+    left join
+        roles r1_0 
+            on r1_0.id=ur1_0.role_id 
+    where
+        ur1_0.user_id=?
+14-Jun-2024 17:52:10.796 DEBUG 4944 --- [http-nio-9001-exec-2] o.s.security.web.FilterChainProxy            : Secured PUT /user/updateUser
+14-Jun-2024 17:52:10.867 TRACE 4944 --- [http-nio-9001-exec-2] o.s.t.i.TransactionInterceptor               : Getting transaction for [com.exam.services.UserService.updateUser]
+14-Jun-2024 17:52:10.869 TRACE 4944 --- [http-nio-9001-exec-2] o.s.t.i.TransactionInterceptor               : Getting transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findById]
+14-Jun-2024 17:52:10.879 DEBUG 4944 --- [http-nio-9001-exec-2] org.hibernate.SQL                            : 
     select
         u1_0.id,
         u1_0.email,
@@ -215,11 +440,11 @@ Caused by: java.lang.IllegalStateException: StandardEngine[Tomcat].StandardHost[
             on r1_0.id=ur1_0.role_id 
     where
         u1_0.id=?
-13-Jun-2024 23:20:33.656 TRACE 31856 --- [http-nio-9001-exec-3] o.s.t.i.TransactionInterceptor               : Completing transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findById]
-13-Jun-2024 23:20:33.657 TRACE 31856 --- [http-nio-9001-exec-3] o.s.t.i.TransactionInterceptor               : Completing transaction for [com.exam.services.UserService.deleteUser]
-13-Jun-2024 23:20:43.537 DEBUG 31856 --- [http-nio-9001-exec-4] o.s.security.web.FilterChainProxy            : Securing DELETE /user/deleteUserById?userId=34
-13-Jun-2024 23:20:43.540 TRACE 31856 --- [http-nio-9001-exec-4] o.s.t.i.TransactionInterceptor               : No need to create transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findByuserName]: This method is not transactional.
-13-Jun-2024 23:20:43.542 DEBUG 31856 --- [http-nio-9001-exec-4] org.hibernate.SQL                            : 
+14-Jun-2024 17:52:10.881 TRACE 4944 --- [http-nio-9001-exec-2] o.s.t.i.TransactionInterceptor               : Completing transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findById]
+14-Jun-2024 17:52:10.882 TRACE 4944 --- [http-nio-9001-exec-2] o.s.t.i.TransactionInterceptor               : Completing transaction for [com.exam.services.UserService.updateUser]
+14-Jun-2024 17:52:32.549 DEBUG 4944 --- [http-nio-9001-exec-3] o.s.security.web.FilterChainProxy            : Securing PUT /user/updateUser
+14-Jun-2024 17:52:32.551 TRACE 4944 --- [http-nio-9001-exec-3] o.s.t.i.TransactionInterceptor               : No need to create transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findByuserName]: This method is not transactional.
+14-Jun-2024 17:52:32.553 DEBUG 4944 --- [http-nio-9001-exec-3] org.hibernate.SQL                            : 
     select
         u1_0.id,
         u1_0.email,
@@ -235,7 +460,7 @@ Caused by: java.lang.IllegalStateException: StandardEngine[Tomcat].StandardHost[
         users u1_0 
     where
         u1_0.userName=?
-13-Jun-2024 23:20:43.545 DEBUG 31856 --- [http-nio-9001-exec-4] org.hibernate.SQL                            : 
+14-Jun-2024 17:52:32.554 DEBUG 4944 --- [http-nio-9001-exec-3] org.hibernate.SQL                            : 
     select
         ur1_0.user_id,
         ur1_0.userRoleId,
@@ -248,10 +473,10 @@ Caused by: java.lang.IllegalStateException: StandardEngine[Tomcat].StandardHost[
             on r1_0.id=ur1_0.role_id 
     where
         ur1_0.user_id=?
-13-Jun-2024 23:20:43.554 DEBUG 31856 --- [http-nio-9001-exec-4] o.s.security.web.FilterChainProxy            : Secured DELETE /user/deleteUserById?userId=34
-13-Jun-2024 23:20:43.555 TRACE 31856 --- [http-nio-9001-exec-4] o.s.t.i.TransactionInterceptor               : Getting transaction for [com.exam.services.UserService.deleteUser]
-13-Jun-2024 23:20:43.555 TRACE 31856 --- [http-nio-9001-exec-4] o.s.t.i.TransactionInterceptor               : Getting transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findById]
-13-Jun-2024 23:20:43.555 DEBUG 31856 --- [http-nio-9001-exec-4] org.hibernate.SQL                            : 
+14-Jun-2024 17:52:32.559 DEBUG 4944 --- [http-nio-9001-exec-3] o.s.security.web.FilterChainProxy            : Secured PUT /user/updateUser
+14-Jun-2024 17:52:32.560 TRACE 4944 --- [http-nio-9001-exec-3] o.s.t.i.TransactionInterceptor               : Getting transaction for [com.exam.services.UserService.updateUser]
+14-Jun-2024 17:52:32.561 TRACE 4944 --- [http-nio-9001-exec-3] o.s.t.i.TransactionInterceptor               : Getting transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findById]
+14-Jun-2024 17:52:32.561 DEBUG 4944 --- [http-nio-9001-exec-3] org.hibernate.SQL                            : 
     select
         u1_0.id,
         u1_0.email,
@@ -277,201 +502,36 @@ Caused by: java.lang.IllegalStateException: StandardEngine[Tomcat].StandardHost[
             on r1_0.id=ur1_0.role_id 
     where
         u1_0.id=?
-13-Jun-2024 23:20:43.557 TRACE 31856 --- [http-nio-9001-exec-4] o.s.t.i.TransactionInterceptor               : Completing transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findById]
-13-Jun-2024 23:20:43.557 TRACE 31856 --- [http-nio-9001-exec-4] o.s.t.i.TransactionInterceptor               : Completing transaction for [com.exam.services.UserService.deleteUser]
-13-Jun-2024 23:21:14.763 DEBUG 31856 --- [http-nio-9001-exec-5] o.s.security.web.FilterChainProxy            : Securing POST /user/generate-token
-13-Jun-2024 23:21:14.764 DEBUG 31856 --- [http-nio-9001-exec-5] o.s.s.w.a.AnonymousAuthenticationFilter      : Set SecurityContextHolder to anonymous SecurityContext
-13-Jun-2024 23:21:14.764 DEBUG 31856 --- [http-nio-9001-exec-5] o.s.s.w.session.SessionManagementFilter      : Request requested invalid session id 218917290F759F7E9787791215BFEF3F
-13-Jun-2024 23:21:14.764 DEBUG 31856 --- [http-nio-9001-exec-5] o.s.security.web.FilterChainProxy            : Secured POST /user/generate-token
-13-Jun-2024 23:21:14.898 TRACE 31856 --- [http-nio-9001-exec-5] o.s.t.i.TransactionInterceptor               : No need to create transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findByuserName]: This method is not transactional.
-13-Jun-2024 23:21:14.900 DEBUG 31856 --- [http-nio-9001-exec-5] org.hibernate.SQL                            : 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.enabled,
-        u1_0.firstName,
-        u1_0.lastName,
-        u1_0.password,
-        u1_0.phone,
-        u1_0.profileUrl,
-        u1_0.unencryptedPassword,
-        u1_0.userName 
-    from
-        users u1_0 
-    where
-        u1_0.userName=?
-13-Jun-2024 23:21:14.902 DEBUG 31856 --- [http-nio-9001-exec-5] org.hibernate.SQL                            : 
-    select
-        ur1_0.user_id,
-        ur1_0.userRoleId,
-        r1_0.id,
-        r1_0.roleName 
-    from
-        userrole ur1_0 
-    left join
-        roles r1_0 
-            on r1_0.id=ur1_0.role_id 
-    where
-        ur1_0.user_id=?
-13-Jun-2024 23:21:14.989 DEBUG 31856 --- [http-nio-9001-exec-5] o.s.s.a.dao.DaoAuthenticationProvider        : Authenticated user
-13-Jun-2024 23:21:14.990 TRACE 31856 --- [http-nio-9001-exec-5] o.s.t.i.TransactionInterceptor               : No need to create transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findByuserName]: This method is not transactional.
-13-Jun-2024 23:21:14.992 DEBUG 31856 --- [http-nio-9001-exec-5] org.hibernate.SQL                            : 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.enabled,
-        u1_0.firstName,
-        u1_0.lastName,
-        u1_0.password,
-        u1_0.phone,
-        u1_0.profileUrl,
-        u1_0.unencryptedPassword,
-        u1_0.userName 
-    from
-        users u1_0 
-    where
-        u1_0.userName=?
-13-Jun-2024 23:21:23.984 DEBUG 31856 --- [http-nio-9001-exec-6] o.s.security.web.FilterChainProxy            : Securing DELETE /user/deleteUserById?userId=4
-13-Jun-2024 23:21:23.985 TRACE 31856 --- [http-nio-9001-exec-6] o.s.t.i.TransactionInterceptor               : No need to create transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findByuserName]: This method is not transactional.
-13-Jun-2024 23:21:23.987 DEBUG 31856 --- [http-nio-9001-exec-6] org.hibernate.SQL                            : 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.enabled,
-        u1_0.firstName,
-        u1_0.lastName,
-        u1_0.password,
-        u1_0.phone,
-        u1_0.profileUrl,
-        u1_0.unencryptedPassword,
-        u1_0.userName 
-    from
-        users u1_0 
-    where
-        u1_0.userName=?
-13-Jun-2024 23:21:23.989 DEBUG 31856 --- [http-nio-9001-exec-6] org.hibernate.SQL                            : 
-    select
-        ur1_0.user_id,
-        ur1_0.userRoleId,
-        r1_0.id,
-        r1_0.roleName 
-    from
-        userrole ur1_0 
-    left join
-        roles r1_0 
-            on r1_0.id=ur1_0.role_id 
-    where
-        ur1_0.user_id=?
-13-Jun-2024 23:21:23.994 DEBUG 31856 --- [http-nio-9001-exec-6] o.s.security.web.FilterChainProxy            : Secured DELETE /user/deleteUserById?userId=4
-13-Jun-2024 23:21:23.995 TRACE 31856 --- [http-nio-9001-exec-6] o.s.t.i.TransactionInterceptor               : Getting transaction for [com.exam.services.UserService.deleteUser]
-13-Jun-2024 23:21:23.996 TRACE 31856 --- [http-nio-9001-exec-6] o.s.t.i.TransactionInterceptor               : Getting transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findById]
-13-Jun-2024 23:21:23.997 DEBUG 31856 --- [http-nio-9001-exec-6] org.hibernate.SQL                            : 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.enabled,
-        u1_0.firstName,
-        u1_0.lastName,
-        u1_0.password,
-        u1_0.phone,
-        u1_0.profileUrl,
-        u1_0.unencryptedPassword,
-        u1_0.userName,
-        ur1_0.user_id,
-        ur1_0.userRoleId,
-        r1_0.id,
-        r1_0.roleName 
-    from
-        users u1_0 
-    left join
-        userrole ur1_0 
-            on u1_0.id=ur1_0.user_id 
-    left join
-        roles r1_0 
-            on r1_0.id=ur1_0.role_id 
-    where
-        u1_0.id=?
-13-Jun-2024 23:21:23.998 TRACE 31856 --- [http-nio-9001-exec-6] o.s.t.i.TransactionInterceptor               : Completing transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findById]
-13-Jun-2024 23:21:23.999 TRACE 31856 --- [http-nio-9001-exec-6] o.s.t.i.TransactionInterceptor               : Completing transaction for [com.exam.services.UserService.deleteUser]
-13-Jun-2024 23:21:32.280 DEBUG 31856 --- [http-nio-9001-exec-7] o.s.security.web.FilterChainProxy            : Securing DELETE /user/deleteUserById?userId=5
-13-Jun-2024 23:21:32.282 TRACE 31856 --- [http-nio-9001-exec-7] o.s.t.i.TransactionInterceptor               : No need to create transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findByuserName]: This method is not transactional.
-13-Jun-2024 23:21:32.284 DEBUG 31856 --- [http-nio-9001-exec-7] org.hibernate.SQL                            : 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.enabled,
-        u1_0.firstName,
-        u1_0.lastName,
-        u1_0.password,
-        u1_0.phone,
-        u1_0.profileUrl,
-        u1_0.unencryptedPassword,
-        u1_0.userName 
-    from
-        users u1_0 
-    where
-        u1_0.userName=?
-13-Jun-2024 23:21:32.285 DEBUG 31856 --- [http-nio-9001-exec-7] org.hibernate.SQL                            : 
-    select
-        ur1_0.user_id,
-        ur1_0.userRoleId,
-        r1_0.id,
-        r1_0.roleName 
-    from
-        userrole ur1_0 
-    left join
-        roles r1_0 
-            on r1_0.id=ur1_0.role_id 
-    where
-        ur1_0.user_id=?
-13-Jun-2024 23:21:32.291 DEBUG 31856 --- [http-nio-9001-exec-7] o.s.security.web.FilterChainProxy            : Secured DELETE /user/deleteUserById?userId=5
-13-Jun-2024 23:21:32.291 TRACE 31856 --- [http-nio-9001-exec-7] o.s.t.i.TransactionInterceptor               : Getting transaction for [com.exam.services.UserService.deleteUser]
-13-Jun-2024 23:21:32.291 TRACE 31856 --- [http-nio-9001-exec-7] o.s.t.i.TransactionInterceptor               : Getting transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findById]
-13-Jun-2024 23:21:32.292 DEBUG 31856 --- [http-nio-9001-exec-7] org.hibernate.SQL                            : 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.enabled,
-        u1_0.firstName,
-        u1_0.lastName,
-        u1_0.password,
-        u1_0.phone,
-        u1_0.profileUrl,
-        u1_0.unencryptedPassword,
-        u1_0.userName,
-        ur1_0.user_id,
-        ur1_0.userRoleId,
-        r1_0.id,
-        r1_0.roleName 
-    from
-        users u1_0 
-    left join
-        userrole ur1_0 
-            on u1_0.id=ur1_0.user_id 
-    left join
-        roles r1_0 
-            on r1_0.id=ur1_0.role_id 
-    where
-        u1_0.id=?
-13-Jun-2024 23:21:32.295 TRACE 31856 --- [http-nio-9001-exec-7] o.s.t.i.TransactionInterceptor               : Completing transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findById]
-13-Jun-2024 23:21:32.296 TRACE 31856 --- [http-nio-9001-exec-7] o.s.t.i.TransactionInterceptor               : Getting transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.deleteById]
-13-Jun-2024 23:21:32.312 TRACE 31856 --- [http-nio-9001-exec-7] o.s.t.i.TransactionInterceptor               : Completing transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.deleteById]
-13-Jun-2024 23:21:32.312 TRACE 31856 --- [http-nio-9001-exec-7] o.s.t.i.TransactionInterceptor               : Completing transaction for [com.exam.services.UserService.deleteUser]
-13-Jun-2024 23:21:32.339 DEBUG 31856 --- [http-nio-9001-exec-7] org.hibernate.SQL                            : 
-    delete 
-    from
-        userrole 
-    where
-        userRoleId=?
-13-Jun-2024 23:21:32.344 DEBUG 31856 --- [http-nio-9001-exec-7] org.hibernate.SQL                            : 
-    delete 
-    from
+14-Jun-2024 17:52:32.563 TRACE 4944 --- [http-nio-9001-exec-3] o.s.t.i.TransactionInterceptor               : Completing transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findById]
+14-Jun-2024 17:52:32.564 TRACE 4944 --- [http-nio-9001-exec-3] o.s.t.i.TransactionInterceptor               : Getting transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.save]
+14-Jun-2024 17:52:32.572 TRACE 4944 --- [http-nio-9001-exec-3] o.s.t.i.TransactionInterceptor               : Completing transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.save]
+14-Jun-2024 17:52:32.572 TRACE 4944 --- [http-nio-9001-exec-3] o.s.t.i.TransactionInterceptor               : Completing transaction for [com.exam.services.UserService.updateUser]
+14-Jun-2024 17:52:32.596 DEBUG 4944 --- [http-nio-9001-exec-3] org.hibernate.SQL                            : 
+    update
         users 
+    set
+        email=?,
+        enabled=?,
+        firstName=?,
+        lastName=?,
+        password=?,
+        phone=?,
+        profileUrl=?,
+        unencryptedPassword=?,
+        userName=? 
     where
         id=?
-13-Jun-2024 23:21:34.129 DEBUG 31856 --- [http-nio-9001-exec-8] o.s.security.web.FilterChainProxy            : Securing DELETE /user/deleteUserById?userId=5
-13-Jun-2024 23:21:34.133 TRACE 31856 --- [http-nio-9001-exec-8] o.s.t.i.TransactionInterceptor               : No need to create transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findByuserName]: This method is not transactional.
-13-Jun-2024 23:21:34.135 DEBUG 31856 --- [http-nio-9001-exec-8] org.hibernate.SQL                            : 
+14-Jun-2024 17:53:27.727 INFO  4944 --- [restartedMain] com.exam.ExamportalserverApplication         : Starting ExamportalserverApplication using Java 17.0.10 with PID 4944 (D:\MyWork\Java Server Code\Java-Projects\examportalserver\target\classes started by aulava in D:\MyWork\Java Server Code\Java-Projects\examportalserver)
+14-Jun-2024 17:53:27.727 DEBUG 4944 --- [restartedMain] com.exam.ExamportalserverApplication         : Running with Spring Boot v3.2.5, Spring v6.1.6
+14-Jun-2024 17:53:27.727 INFO  4944 --- [restartedMain] com.exam.ExamportalserverApplication         : No active profile set, falling back to 1 default profile: "default"
+14-Jun-2024 17:53:28.067 DEBUG 4944 --- [restartedMain] o.h.t.d.sql.spi.DdlTypeRegistry              : addDescriptor(2003, org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@225d18ef) replaced previous registration(org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@b040b34)
+14-Jun-2024 17:53:28.067 DEBUG 4944 --- [restartedMain] o.h.t.d.sql.spi.DdlTypeRegistry              : addDescriptor(6, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@7eb2900f) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@7143a7e2)
+14-Jun-2024 17:53:28.174 DEBUG 4944 --- [restartedMain] com.exam.config.JwtAuthRequestFilter         : Filter 'jwtAuthRequestFilter' configured for use
+14-Jun-2024 17:53:28.250 INFO  4944 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain         : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@604c30c1, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@718e3355, org.springframework.security.web.context.SecurityContextHolderFilter@598125cf, org.springframework.security.web.header.HeaderWriterFilter@3967f3ac, org.springframework.web.filter.CorsFilter@2c788161, org.springframework.security.web.authentication.logout.LogoutFilter@3bf554c1, com.exam.config.JwtAuthRequestFilter@4a6b8b0f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4bf54e1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2433d49, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7c959a41, org.springframework.security.web.session.SessionManagementFilter@4d548e85, org.springframework.security.web.access.ExceptionTranslationFilter@246f3197, org.springframework.security.web.access.intercept.AuthorizationFilter@5ea1d39c]
+14-Jun-2024 17:53:28.301 INFO  4944 --- [restartedMain] com.exam.ExamportalserverApplication         : Started ExamportalserverApplication in 0.592 seconds (process running for 83.072)
+14-Jun-2024 17:53:31.589 DEBUG 4944 --- [http-nio-9001-exec-3] o.s.security.web.FilterChainProxy            : Securing PUT /user/updateUser
+14-Jun-2024 17:53:31.592 TRACE 4944 --- [http-nio-9001-exec-3] o.s.t.i.TransactionInterceptor               : No need to create transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findByuserName]: This method is not transactional.
+14-Jun-2024 17:53:31.609 DEBUG 4944 --- [http-nio-9001-exec-3] org.hibernate.SQL                            : 
     select
         u1_0.id,
         u1_0.email,
@@ -487,56 +547,7 @@ Caused by: java.lang.IllegalStateException: StandardEngine[Tomcat].StandardHost[
         users u1_0 
     where
         u1_0.userName=?
-13-Jun-2024 23:21:34.137 INFO  31856 --- [http-nio-9001-exec-8] com.exam.config.JwtAuthRequestFilter         : User Not Found with :ashok1147
-13-Jun-2024 23:21:34.138 DEBUG 31856 --- [http-nio-9001-exec-8] o.s.s.w.a.AnonymousAuthenticationFilter      : Set SecurityContextHolder to anonymous SecurityContext
-13-Jun-2024 23:21:34.138 DEBUG 31856 --- [http-nio-9001-exec-8] o.s.s.w.session.SessionManagementFilter      : Request requested invalid session id 218917290F759F7E9787791215BFEF3F
-13-Jun-2024 23:21:34.146 DEBUG 31856 --- [http-nio-9001-exec-8] o.s.security.web.FilterChainProxy            : Securing DELETE /error?userId=5
-13-Jun-2024 23:21:34.147 DEBUG 31856 --- [http-nio-9001-exec-8] o.s.s.w.a.AnonymousAuthenticationFilter      : Set SecurityContextHolder to anonymous SecurityContext
-13-Jun-2024 23:21:52.970 DEBUG 31856 --- [http-nio-9001-exec-9] o.s.security.web.FilterChainProxy            : Securing GET /user/getUser?userName=ashok1147
-13-Jun-2024 23:21:52.972 TRACE 31856 --- [http-nio-9001-exec-9] o.s.t.i.TransactionInterceptor               : No need to create transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findByuserName]: This method is not transactional.
-13-Jun-2024 23:21:52.974 DEBUG 31856 --- [http-nio-9001-exec-9] org.hibernate.SQL                            : 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.enabled,
-        u1_0.firstName,
-        u1_0.lastName,
-        u1_0.password,
-        u1_0.phone,
-        u1_0.profileUrl,
-        u1_0.unencryptedPassword,
-        u1_0.userName 
-    from
-        users u1_0 
-    where
-        u1_0.userName=?
-13-Jun-2024 23:21:52.975 INFO  31856 --- [http-nio-9001-exec-9] com.exam.config.JwtAuthRequestFilter         : User Not Found with :ashok1147
-13-Jun-2024 23:21:52.975 DEBUG 31856 --- [http-nio-9001-exec-9] o.s.s.w.a.AnonymousAuthenticationFilter      : Set SecurityContextHolder to anonymous SecurityContext
-13-Jun-2024 23:21:52.975 DEBUG 31856 --- [http-nio-9001-exec-9] o.s.s.w.session.SessionManagementFilter      : Request requested invalid session id 218917290F759F7E9787791215BFEF3F
-13-Jun-2024 23:21:52.976 DEBUG 31856 --- [http-nio-9001-exec-9] o.s.security.web.FilterChainProxy            : Securing GET /error?userName=ashok1147
-13-Jun-2024 23:21:52.976 DEBUG 31856 --- [http-nio-9001-exec-9] o.s.s.w.a.AnonymousAuthenticationFilter      : Set SecurityContextHolder to anonymous SecurityContext
-13-Jun-2024 23:22:15.969 DEBUG 31856 --- [http-nio-9001-exec-10] o.s.security.web.FilterChainProxy            : Securing POST /user/generate-token
-13-Jun-2024 23:22:15.969 DEBUG 31856 --- [http-nio-9001-exec-10] o.s.s.w.a.AnonymousAuthenticationFilter      : Set SecurityContextHolder to anonymous SecurityContext
-13-Jun-2024 23:22:15.970 DEBUG 31856 --- [http-nio-9001-exec-10] o.s.s.w.session.SessionManagementFilter      : Request requested invalid session id 218917290F759F7E9787791215BFEF3F
-13-Jun-2024 23:22:15.970 DEBUG 31856 --- [http-nio-9001-exec-10] o.s.security.web.FilterChainProxy            : Secured POST /user/generate-token
-13-Jun-2024 23:22:15.971 TRACE 31856 --- [http-nio-9001-exec-10] o.s.t.i.TransactionInterceptor               : No need to create transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findByuserName]: This method is not transactional.
-13-Jun-2024 23:22:15.972 DEBUG 31856 --- [http-nio-9001-exec-10] org.hibernate.SQL                            : 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.enabled,
-        u1_0.firstName,
-        u1_0.lastName,
-        u1_0.password,
-        u1_0.phone,
-        u1_0.profileUrl,
-        u1_0.unencryptedPassword,
-        u1_0.userName 
-    from
-        users u1_0 
-    where
-        u1_0.userName=?
-13-Jun-2024 23:22:15.974 DEBUG 31856 --- [http-nio-9001-exec-10] org.hibernate.SQL                            : 
+14-Jun-2024 17:53:31.612 DEBUG 4944 --- [http-nio-9001-exec-3] org.hibernate.SQL                            : 
     select
         ur1_0.user_id,
         ur1_0.userRoleId,
@@ -549,110 +560,10 @@ Caused by: java.lang.IllegalStateException: StandardEngine[Tomcat].StandardHost[
             on r1_0.id=ur1_0.role_id 
     where
         ur1_0.user_id=?
-13-Jun-2024 23:22:16.059 DEBUG 31856 --- [http-nio-9001-exec-10] o.s.s.a.dao.DaoAuthenticationProvider        : Authenticated user
-13-Jun-2024 23:22:16.059 TRACE 31856 --- [http-nio-9001-exec-10] o.s.t.i.TransactionInterceptor               : No need to create transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findByuserName]: This method is not transactional.
-13-Jun-2024 23:22:16.060 DEBUG 31856 --- [http-nio-9001-exec-10] org.hibernate.SQL                            : 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.enabled,
-        u1_0.firstName,
-        u1_0.lastName,
-        u1_0.password,
-        u1_0.phone,
-        u1_0.profileUrl,
-        u1_0.unencryptedPassword,
-        u1_0.userName 
-    from
-        users u1_0 
-    where
-        u1_0.userName=?
-13-Jun-2024 23:22:23.783 DEBUG 31856 --- [http-nio-9001-exec-1] o.s.security.web.FilterChainProxy            : Securing GET /user/getUser?userName=ashok1147
-13-Jun-2024 23:22:23.785 TRACE 31856 --- [http-nio-9001-exec-1] o.s.t.i.TransactionInterceptor               : No need to create transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findByuserName]: This method is not transactional.
-13-Jun-2024 23:22:23.787 DEBUG 31856 --- [http-nio-9001-exec-1] org.hibernate.SQL                            : 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.enabled,
-        u1_0.firstName,
-        u1_0.lastName,
-        u1_0.password,
-        u1_0.phone,
-        u1_0.profileUrl,
-        u1_0.unencryptedPassword,
-        u1_0.userName 
-    from
-        users u1_0 
-    where
-        u1_0.userName=?
-13-Jun-2024 23:22:23.788 DEBUG 31856 --- [http-nio-9001-exec-1] org.hibernate.SQL                            : 
-    select
-        ur1_0.user_id,
-        ur1_0.userRoleId,
-        r1_0.id,
-        r1_0.roleName 
-    from
-        userrole ur1_0 
-    left join
-        roles r1_0 
-            on r1_0.id=ur1_0.role_id 
-    where
-        ur1_0.user_id=?
-13-Jun-2024 23:22:23.798 DEBUG 31856 --- [http-nio-9001-exec-1] o.s.security.web.FilterChainProxy            : Secured GET /user/getUser?userName=ashok1147
-13-Jun-2024 23:22:23.856 TRACE 31856 --- [http-nio-9001-exec-1] o.s.t.i.TransactionInterceptor               : Getting transaction for [com.exam.services.UserService.getUser]
-13-Jun-2024 23:22:23.856 TRACE 31856 --- [http-nio-9001-exec-1] o.s.t.i.TransactionInterceptor               : No need to create transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findByuserName]: This method is not transactional.
-13-Jun-2024 23:22:23.858 DEBUG 31856 --- [http-nio-9001-exec-1] org.hibernate.SQL                            : 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.enabled,
-        u1_0.firstName,
-        u1_0.lastName,
-        u1_0.password,
-        u1_0.phone,
-        u1_0.profileUrl,
-        u1_0.unencryptedPassword,
-        u1_0.userName 
-    from
-        users u1_0 
-    where
-        u1_0.userName=?
-13-Jun-2024 23:22:23.860 TRACE 31856 --- [http-nio-9001-exec-1] o.s.t.i.TransactionInterceptor               : Completing transaction for [com.exam.services.UserService.getUser]
-13-Jun-2024 23:22:34.496 DEBUG 31856 --- [http-nio-9001-exec-2] o.s.security.web.FilterChainProxy            : Securing DELETE /user/deleteUserById?userId=5
-13-Jun-2024 23:22:34.499 TRACE 31856 --- [http-nio-9001-exec-2] o.s.t.i.TransactionInterceptor               : No need to create transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findByuserName]: This method is not transactional.
-13-Jun-2024 23:22:34.500 DEBUG 31856 --- [http-nio-9001-exec-2] org.hibernate.SQL                            : 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.enabled,
-        u1_0.firstName,
-        u1_0.lastName,
-        u1_0.password,
-        u1_0.phone,
-        u1_0.profileUrl,
-        u1_0.unencryptedPassword,
-        u1_0.userName 
-    from
-        users u1_0 
-    where
-        u1_0.userName=?
-13-Jun-2024 23:22:34.502 DEBUG 31856 --- [http-nio-9001-exec-2] org.hibernate.SQL                            : 
-    select
-        ur1_0.user_id,
-        ur1_0.userRoleId,
-        r1_0.id,
-        r1_0.roleName 
-    from
-        userrole ur1_0 
-    left join
-        roles r1_0 
-            on r1_0.id=ur1_0.role_id 
-    where
-        ur1_0.user_id=?
-13-Jun-2024 23:22:34.509 DEBUG 31856 --- [http-nio-9001-exec-2] o.s.security.web.FilterChainProxy            : Secured DELETE /user/deleteUserById?userId=5
-13-Jun-2024 23:22:34.510 TRACE 31856 --- [http-nio-9001-exec-2] o.s.t.i.TransactionInterceptor               : Getting transaction for [com.exam.services.UserService.deleteUser]
-13-Jun-2024 23:22:34.510 TRACE 31856 --- [http-nio-9001-exec-2] o.s.t.i.TransactionInterceptor               : Getting transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findById]
-13-Jun-2024 23:22:34.511 DEBUG 31856 --- [http-nio-9001-exec-2] org.hibernate.SQL                            : 
+14-Jun-2024 17:53:31.620 DEBUG 4944 --- [http-nio-9001-exec-3] o.s.security.web.FilterChainProxy            : Secured PUT /user/updateUser
+14-Jun-2024 17:53:31.623 TRACE 4944 --- [http-nio-9001-exec-3] o.s.t.i.TransactionInterceptor               : Getting transaction for [com.exam.services.UserService.updateUser]
+14-Jun-2024 17:53:31.623 TRACE 4944 --- [http-nio-9001-exec-3] o.s.t.i.TransactionInterceptor               : Getting transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findById]
+14-Jun-2024 17:53:31.624 DEBUG 4944 --- [http-nio-9001-exec-3] org.hibernate.SQL                            : 
     select
         u1_0.id,
         u1_0.email,
@@ -678,5 +589,22 @@ Caused by: java.lang.IllegalStateException: StandardEngine[Tomcat].StandardHost[
             on r1_0.id=ur1_0.role_id 
     where
         u1_0.id=?
-13-Jun-2024 23:22:34.512 TRACE 31856 --- [http-nio-9001-exec-2] o.s.t.i.TransactionInterceptor               : Completing transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findById]
-13-Jun-2024 23:22:34.512 TRACE 31856 --- [http-nio-9001-exec-2] o.s.t.i.TransactionInterceptor               : Completing transaction for [com.exam.services.UserService.deleteUser]
+14-Jun-2024 17:53:31.625 TRACE 4944 --- [http-nio-9001-exec-3] o.s.t.i.TransactionInterceptor               : Completing transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findById]
+14-Jun-2024 17:53:31.626 TRACE 4944 --- [http-nio-9001-exec-3] o.s.t.i.TransactionInterceptor               : Getting transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.save]
+14-Jun-2024 17:53:31.626 TRACE 4944 --- [http-nio-9001-exec-3] o.s.t.i.TransactionInterceptor               : Completing transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.save]
+14-Jun-2024 17:53:31.626 TRACE 4944 --- [http-nio-9001-exec-3] o.s.t.i.TransactionInterceptor               : Completing transaction for [com.exam.services.UserService.updateUser]
+14-Jun-2024 17:53:31.626 DEBUG 4944 --- [http-nio-9001-exec-3] org.hibernate.SQL                            : 
+    update
+        users 
+    set
+        email=?,
+        enabled=?,
+        firstName=?,
+        lastName=?,
+        password=?,
+        phone=?,
+        profileUrl=?,
+        unencryptedPassword=?,
+        userName=? 
+    where
+        id=?

@@ -29,7 +29,7 @@ import jakarta.servlet.ServletRequest;
 import jakarta.servlet.ServletResponse;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("examportal/user")
 @CrossOrigin("*")
 public class JwtAuthenticationController {
 	@Autowired private JwtTokenUtility jwtTokenUtility;

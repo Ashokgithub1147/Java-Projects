@@ -25,7 +25,6 @@ public class JwtAuthRequestFilter extends OncePerRequestFilter {
 
 	@Autowired private JwtTokenUtility jwtTokenUtility;
 	@Autowired private UserDetailsService userDetailsService;
-//	@Autowired private Logger logger;
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
 			throws ServletException, IOException {
@@ -50,15 +49,15 @@ public class JwtAuthRequestFilter extends OncePerRequestFilter {
 				
 				UserDetails userDetails = this.userDetailsService.loadUserByUsername(userName);
 				if(jwtTokenUtility.validateToken(token, userDetails)) {
-					UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new 
+					UsernamePasswordAuthenticationToken authenticationToken = new 
 							UsernamePasswordAuthenticationToken(userDetails, null,userDetails.getAuthorities());
 					//wrongly implemented even though it worked ...???
-					usernamePasswordAuthenticationToken.setDetails(userDetails);
+					authenticationToken.setDetails(userDetails);
 //				usernamePasswordAuthenticationToken.setDetails(
 //						new WebAuthenticationDetailsSource().buildDetails(request));
 					// After setting the Authentication in the context, we specify
 					// that the current user is authenticated. So it passes the Spring Security Configurations successfully.
-					SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
+					SecurityContextHolder.getContext().setAuthentication(authenticationToken);
 				}
 			} catch(UsernameNotFoundException ex) {
 				logger.info(ex.getMessage());
@@ -70,8 +69,8 @@ public class JwtAuthRequestFilter extends OncePerRequestFilter {
 	
 	@Override
 	protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
-		return request.getServletPath().contains("/user/createUser") 
-				|| request.getServletPath().contains("/user/generate-token");
+		return request.getServletPath().contains("examportal/user/createUser") 
+				|| request.getServletPath().contains("examportal/user/generate-token");
 	}
 
 }

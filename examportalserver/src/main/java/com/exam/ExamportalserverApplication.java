@@ -13,7 +13,7 @@ public class ExamportalserverApplication {
 		SpringApplication.run(ExamportalserverApplication.class, args);
 	}
 	@Bean
-    public Logger logger() {
+    Logger logger() {
         return LoggerFactory.getLogger("com.exam.MyLogger");
     }
 }

@@ -4,10 +4,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,7 +26,7 @@ import com.exam.utilities.ResponseBean;
  * @author Ashok Ulava
  */
 @RestController
-@RequestMapping("/user")
+@RequestMapping("examportal/user")
 @CrossOrigin("*")
 public class UserController {
 
@@ -40,22 +42,10 @@ public class UserController {
 	public ResponseBean createUser(@RequestBody User user) {
 		ResponseBean response = new ResponseBean();
 		try {
-//			Set<UserRole> roles = new HashSet<>();
-//			
-//			Role role = new Role();
-//			role.setId(normalUserRole);
-//			role.setRoleName("NORMAL");
-//			
-//			UserRole userRole = new UserRole();
-//			userRole.setRole(role);
-//			userRole.setUser(user);
-//			
-//			//adding userRole to roles set
-//			roles.add(userRole);
 			response = userService.createUser(user);
-		}catch(Exception e) {
-			System.out.println("Exception occured "+e.getMessage());
-			response.setMessage("Create User API failed with Exception : "+e.getMessage());
+		}catch(Exception ex) {
+			System.out.println("Exception occured "+ex.getMessage());
+			response.setMessage("Create User API failed with Exception : "+ex.getMessage());
 		}
 		
 		return response;
@@ -64,7 +54,7 @@ public class UserController {
 	 * getUser
 	 * 
 	 * @param userName
-	 * @return response
+	 * @return ResponseBean
 	 */
 	@GetMapping(value="/getUser")
 	public ResponseBean getUser(@RequestParam("userName") String userName) {
@@ -72,18 +62,35 @@ public class UserController {
 		try {
 			response = userService.getUser(userName);
 		}catch(Exception e) {
+			response.setStatus(HttpStatus.EXPECTATION_FAILED);
 			response.setMessage("Get User API failed with exception : "+e.getMessage());
 		}
 		return response;
 	}
-	
+	@PutMapping(value="/updateUser")
+	public ResponseBean updateUser(@RequestBody User user) {
+		ResponseBean response = new ResponseBean();
+		try {
+			response = this.userService.updateUser(user);
+		}catch(Exception ex) {
+			response.setStatus(HttpStatus.EXPECTATION_FAILED);
+			response.setMessage("Update User API failed with exception : "+ex.getMessage());
+		}
+		return response;
+	}
+	/**
+	 * delete User
+	 * @param userId
+	 * @return ResponseBean
+	 */
 	@DeleteMapping(value="/deleteUserById")
 	public ResponseBean deleteUser(@RequestParam("userId") Long userId) {
 		ResponseBean response = new ResponseBean();
 		try {
 			response = this.userService.deleteUser(userId);
-		}catch(Exception e) {
-			response.setMessage("Delete User API failed with exception : "+e.getMessage());
+		}catch(Exception ex) {
+			response.setStatus(HttpStatus.EXPECTATION_FAILED);
+			response.setMessage("Delete User API failed with exception : "+ex.getMessage());
 		}
 		return response;
 	}

@@ -28,7 +28,7 @@ public class JWTSecurityConfiguration{
 	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		http.csrf(AbstractHttpConfigurer::disable)
         .authorizeHttpRequests(req -> req
-                .requestMatchers("/user/createUser", "/user/generate-token").permitAll()
+                .requestMatchers("examportal/user/createUser", "examportal/user/generate-token").permitAll()
                 .anyRequest().authenticated())
         .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
         .authenticationProvider(authenticationProvider)
