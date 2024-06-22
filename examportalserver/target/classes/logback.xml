@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <property name="LOG_FILE_PATH" value="logs/examportal.log"/>
+    
+    <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter" />
+    <conversionRule conversionWord="wex" converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter" />
+    <conversionRule conversionWord="wEx" converterClass="org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter" />
+    
+    <appender name="FILE-ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_FILE_PATH}</file>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>logs/archived/application.%d{dd-MMM-yyyy}.%i.log</fileNamePattern>
+            <maxFileSize>10MB</maxFileSize>
+            <totalSizeCap>1GB</totalSizeCap>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>%d{dd-MMM-yyyy HH:mm:ss.SSS} %-5level ${PID:- } --- [%t] %-40.40logger{39}     : %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="com.exam" level="DEBUG" additivity="false">
+        <appender-ref ref="FILE-ROLLING"/>
+    </logger>
+ <!--  <logger name="org.hibernate" level="debug" additivity="false">
+        <appender-ref ref="FILE-ROLLING"/>
+    </logger> -->
+    <root level="ERROR">
+        <appender-ref ref="FILE-ROLLING"/>
+    </root>
+
+</configuration>

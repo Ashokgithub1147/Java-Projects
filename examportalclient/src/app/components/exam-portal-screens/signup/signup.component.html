@@ -1,0 +1,52 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 text-center">
+                 <img src="./../../assets/exam_portal_logo.png" class="img-size margin-top-10" alt="exam_portal">
+                 <h1>Register Here!!</h1>
+                 <form (ngSubmit)="onSignUp()" class="text-center" [formGroup]="userDetailsForm">
+                    <mat-form-field class="full-width" appearance="outline">
+                      <mat-label>Username</mat-label>
+                      <input matInput formControlName="userName" type="text" placeholder="Enter username" maxlength="64" >
+                      <mat-error>Field is required</mat-error>
+                    </mat-form-field><br>
+
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input matInput formControlName="password" type="password" placeholder="Enter username" maxlength="32" >
+                        <mat-error>Field is required</mat-error>
+                    </mat-form-field><br>
+
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>First Name</mat-label>
+                        <input matInput formControlName="firstName" type="text" placeholder="Enter username" maxlength="128" >
+                        <mat-error>Field is required</mat-error>
+                    </mat-form-field><br>
+
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Last Name</mat-label>
+                        <input matInput formControlName="lastName" type="text" placeholder="Enter username" maxlength="128" >
+                        <mat-error>Field is required</mat-error>
+                    </mat-form-field><br>
+                    
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input matInput formControlName="email" type="email" placeholder="Enter username" maxlength="64" >
+                        <mat-error>Field is required</mat-error>
+                    </mat-form-field><br>
+
+                    <mat-form-field class="full-width" appearance="outline">
+                      <mat-label>Phone</mat-label>
+                      <input matInput formControlName="phone" type="phone" placeholder="Enter phone number" maxlength="10" >
+                      <mat-error>Field is required</mat-error>
+                    </mat-form-field><br>
+                    <div class="container">
+                        <button mat-raised-button color="primary" type="submit">Regiser</button>
+                        <button mat-raised-button class="margin-left-20" color="warn">Close</button>
+                    </div>
+                    </form>
+                  
+             </div>
+        </div>
+    </div>
+</div>
