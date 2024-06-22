@@ -1,0 +1,58 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row margin-top-10">
+            <div class="col-md-6 offset-md-3">
+                <div class="container text-center">
+                    <img src="../../assets/exam_portal_logo.png" class="img-size" alt="exam_portal">
+                </div>
+                
+                <h1 class="text-center">Register Here!!</h1>
+                <!-- Here we are adding form to capture singup data -->
+                 <form (ngSubmit)="onSignUp()" class="text-center" [formGroup]="userDetails">
+                    <!-- Usrrname  field-->
+                         <mat-form-field class="width-50" appearance="outline">
+                             <mat-label>Username</mat-label>
+                             <input matInput class="custom-input" formControlName="userName" type="text" maxlength="64" placeholder="enter username"/>
+                             <mat-error>Field is required</mat-error>
+                         </mat-form-field><br>
+                         <!-- Password field -->
+                         <mat-form-field class="width-50" appearance="outline">
+                            <mat-label>Password</mat-label>
+                            <input matInput formControlName="password" type="password" maxlength="64" placeholder="enter password"/>
+                            <mat-error>Field is required</mat-error>
+                        </mat-form-field><br>
+                        <!-- Firstname field -->
+                        <mat-form-field class="width-50" appearance="outline">
+                            <mat-label>First Name</mat-label>
+                            <input matInput formControlName="firstName" type="text" maxlength="128" placeholder="enter firstname"/>
+                            <mat-error>Field is required</mat-error>
+                        </mat-form-field><br>
+                        <!-- Lastname field -->
+                        <mat-form-field class="width-50" appearance="outline">
+                            <mat-label>Last Name</mat-label>
+                            <input matInput formControlName="lastName" type="text" maxlength="128" placeholder="enter lastname"/>
+                            <mat-error>Field is required</mat-error>
+                        </mat-form-field><br>
+                        <!-- Email field -->
+                        <mat-form-field class="width-50" appearance="outline">
+                            <mat-label>Email</mat-label>
+                            <input matInput formControlName="email" type="email" maxlength="64" placeholder="enter email"/>
+                            <mat-error>Field is required</mat-error>
+                        </mat-form-field><br>
+                        <!-- Mobile Number field -->
+                        <mat-form-field class="width-50" appearance="outline">
+                            <mat-label>Phone</mat-label>
+                            <input matInput formControlName="phone" type="mobile" placeholder="enter mobile number" 
+                                oninput="this.value=this.value.replace(/[^0-9+\-]/g,'')"
+                                maxlength="10"/>
+                            <mat-error>Field is required</mat-error>
+                        </mat-form-field><br>
+                        <div class="container">
+                            <button mat-raised-button color="primary" type="submit">Register</button>
+                            <button mat-raised-button class="margin-left-10" color="warn">Close</button>
+                        </div>
+                 </form>
+            </div>
+        </div>
+    </div>
+</div>
