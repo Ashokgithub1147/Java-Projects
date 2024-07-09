@@ -1,0 +1,5 @@
+# Ignore logs folder and its contents under examportalserver
+examportalserver/logs/
+examportalserver/logs/archived/
+# Ignore target folder and its contents under examportalserver
+examportalserver/target/

@@ -1,15 +1,15 @@
 package com.exam.controller;
 
 import java.security.Principal;
+import java.util.HashMap;
+import java.util.Map;
 
-import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -37,52 +37,31 @@ public class JwtAuthenticationController {
 	@Autowired private AuthenticationManager authenticationManager;
 	@Autowired private UserRepository userRepository;
 	@Autowired private UserService userService;
-//	@Autowired private Logger logger;
-//	class LoginData{
-//		public String token;
-//		public User user;
-//	}
-	class JWTToken{
-		public String token;
-	}
+
 	@GetMapping(value="/get")
 	public String getData() {
 		return "Data came";
 	}
 	
-	@PostMapping("/generate-token")
+	@PostMapping("/login")
 	public ResponseBean generateJwtToken(ServletRequest req, ServletResponse res, @RequestBody JwtRequest jwtRequest) {
 		ResponseBean response = new ResponseBean();
 		try {
 			authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(jwtRequest.getUserName(), jwtRequest.getPassword()));
 		}catch(BadCredentialsException e){
 			System.out.println("Exception occured :"+e.getMessage());
-			response.setMessage(e.getMessage());
+			response.setMessage(e.getMessage()+": username/password is invalid");
 			response.setStatus(HttpStatus.UNAUTHORIZED);
 			return response;
 		}
-//		try {
-			
-			final UserDetails userDetails = jwtUserDetailsService.loadUserByUsername(jwtRequest.getUserName());
-			final String token = jwtTokenUtility.generateToken(userDetails);
-//		Optional<User> userOptional = userRepository.findByuserName(jwtRequest.getUserName());
-//		User userData = null;
-//		if(userOptional.isPresent()) {
-//			userData = userOptional.get();
-//		}
-//		LoginData loginData = new LoginData();
-//		loginData.token = token;
-//		loginData.user = userData;
-			response.setStatus(HttpStatus.OK);
-			response.setMessage("JWT Token generated successfully!");
-			JWTToken jwtToken = new JWTToken();
-			jwtToken.token = token;
-			response.setData(jwtToken);
-//		} catch(UsernameNotFoundException ex) {
-//			response.setStatus(HttpStatus.NOT_FOUND);
-//			response.setMessage(ex.getMessage());
-//			logger.info(ex.getMessage());
-//		}
+		
+		final UserDetails userDetails = jwtUserDetailsService.loadUserByUsername(jwtRequest.getUserName());
+		final String token = jwtTokenUtility.generateToken(userDetails);
+		Map<String,String> jwtTokenMap = new HashMap<>();
+		jwtTokenMap.put("jwtToken", token);
+		response.setData(jwtTokenMap);
+		response.setStatus(HttpStatus.OK);
+		response.setMessage("JWT Token generated successfully!");
 		return response;
 	}
 	/**

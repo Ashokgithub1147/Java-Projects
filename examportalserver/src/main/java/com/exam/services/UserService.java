@@ -131,6 +131,7 @@ public class UserService {
 			User existingUser = userOptional.get();
 			final User userToSave = this.mapUserObject(existingUser, user);
 			User savedUser = this.userRepository.save(userToSave);
+			response.setMessage("User updated successfully!");
 			response.setData(savedUser);
 			response.setStatus(HttpStatus.OK);
 		}

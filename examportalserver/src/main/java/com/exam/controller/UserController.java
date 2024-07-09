@@ -56,7 +56,7 @@ public class UserController {
 	 * @param userName
 	 * @return ResponseBean
 	 */
-	@GetMapping(value="/getUser")
+	@GetMapping(value="/getUserByUsername")
 	public ResponseBean getUser(@RequestParam("userName") String userName) {
 		ResponseBean response = new ResponseBean();
 		try {

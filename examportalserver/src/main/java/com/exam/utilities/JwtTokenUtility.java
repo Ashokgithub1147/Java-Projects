@@ -109,6 +109,7 @@ private static final long serialVersionUID = 50185165626007484L;
 	 */
 	public String generateToken(UserDetails userDetails) {
 		Map<String, Object> claims = new HashMap<>();
+		claims.put("authorities", populateAuthorities(userDetails.getAuthorities()));
 		return doGenerateToken(claims, userDetails.getUsername());
 	}
 
@@ -159,11 +160,12 @@ private static final long serialVersionUID = 50185165626007484L;
 	/**
 	 * This method is used to populate authorities in JWT token
 	 * @param authorities
-	 * @return String
+	 * @return Set<String>
 	 */
-	private String populateAuthorities(Collection<? extends GrantedAuthority> authorities) {
+	private Set<String> populateAuthorities(Collection<? extends GrantedAuthority> authorities) {
 		Set<String> authoritiesSet = new HashSet<>();
 		authoritiesSet = authorities.stream().map(authority->authority.getAuthority()).collect(Collectors.toSet());
-		return String.join(",", authoritiesSet);
+//		return String.join(",", authoritiesSet);
+		return authoritiesSet;
 	}
 }

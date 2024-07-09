@@ -20,3 +20,27 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .width-50{
     width: 50%;
 }
+/* For Success Snack Bar */
+.success-snackbar {
+    background-color: green;
+    color: white; /* Optional: text color */
+  }
+  
+  /* For Failure Snack Bar */
+  .failure-snackbar {
+    background-color: red;
+    color: white; /* Optional: text color */
+  }
+  
+  /* For Warning Snack Bar */
+  .warning-snackbar {
+    background-color: orange;
+    color: black; /* Optional: text color */
+  }
+  
+  /* For Info Snack Bar */
+  .info-snackbar {
+    background-color: rgb(62, 163, 211);
+    color: white; /* Optional: text color */
+  }
+  

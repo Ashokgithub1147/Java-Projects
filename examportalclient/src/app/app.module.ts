@@ -9,6 +9,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './components/exam-portal-screens/login/login.component';
 import { SignupComponent } from './components/exam-portal-screens/signup/signup.component';
 import { MaterialModule } from './modules/material/material/material.module';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { AppConstants } from './config/AppConstants';
 
 @NgModule({
   declarations: [
@@ -17,14 +19,16 @@ import { MaterialModule } from './modules/material/material/material.module';
     FooterComponent,
     LoginComponent,
     SignupComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [HttpClient,AppConstants],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
