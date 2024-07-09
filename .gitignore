@@ -3,3 +3,5 @@ examportalserver/logs/
 examportalserver/logs/archived/
 # Ignore target folder and its contents under examportalserver
 examportalserver/target/
+#Ignore target folder and its contents under Spring-Security-with-JWT 
+Spring-Security-with-JWT/target/
